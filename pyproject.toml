@@ -15,7 +15,10 @@ dependencies = [
     "dagster>=1.8",
     "dagster-dbt>=0.24",
     "dagster-webserver>=1.8",
-    "psycopg2-binary"
+    "psycopg2-binary",
+    "pre-commit>=4.7.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
 ]
 
 [dependency-groups]
