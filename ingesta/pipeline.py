@@ -1,20 +1,17 @@
 import dlt
-from fuente import  fuente_ventas
+from ingesta.fuentes import fuente_clima
 
 
-def build_pipeline() -> dlt.Pipeline:
-    return dlt.pipeline(
-        pipeline_name="car_sales",
-        destination="duckdb",
-        dataset_name="raw_carsales"
+def ejecutar():
+    pipeline = dlt.pipeline(
+        pipeline_name="pipeline_modular_clima",
+        destination=dlt.destinations.duckdb("datos.duckdb"),
+        dataset_name="clima_raw"
     )
 
-
-def main() -> None: 
-    pipe = build_pipeline()
-    info = pipe.run(fuente_ventas)
+    info = pipeline.run(fuente_clima())
     print(info)
 
 
 if __name__ == "__main__":
-    main()
+    ejecutar()
